@@ -5,9 +5,11 @@ import Footer from "./layout/Footer";
 const App = () => {
   return (
     <div className="bg-white text-black flex flex-col justify-between min-h-[100vh] min-w-[100vw] overflow-x-hidden">
-      <div className="">
+      <div className="header">
         <Header></Header>
-        <Outlet></Outlet>
+        <div className="pt-[70px]">
+          <Outlet></Outlet>
+        </div>
       </div>
       <Footer className="footer-class"></Footer>
     </div>
