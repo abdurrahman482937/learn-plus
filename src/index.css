@@ -3,9 +3,16 @@
   themes: light --default;
 }
 @import "@radix-ui/themes/styles.css";
+@font-face {
+  font-family: Poppins;
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+@theme {
+  --font-poppins: Poppins, "sans-serif";
+}
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins, "sans-serif";
   line-height: 1.5;
   font-weight: 400;
 
