@@ -5,7 +5,7 @@ const Login = ({ handleLogin, setIsLogin }) => {
     <div>
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       <div
-        className="modal bg-white text-black"
+        className="modal bg-white text-black z-50"
         role="dialog"
         aria-labelledby="login-modal-title"
       >

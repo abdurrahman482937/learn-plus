@@ -4,7 +4,7 @@ const Register = ({ handleRegister, setIsLogin }) => {
   return (
     <div>
       <input type="checkbox" id="my_modal_8" className="modal-toggle" />
-      <div className="modal bg-white text-black" role="dialog">
+      <div className="modal bg-white text-black z-50" role="dialog">
         <div className="modal-box">
           <label
             htmlFor="my_modal_8"

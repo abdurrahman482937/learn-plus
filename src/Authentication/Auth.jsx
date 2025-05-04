@@ -54,13 +54,13 @@ const Auth = () => {
   return (
     <>
       {user ? (
-        <button onClick={logout} className="cursor-pointer btn px-7 ml-5">
+        <button onClick={logout} className="cursor-pointer btn md:px-7 ml-5">
           Logout
         </button>
       ) : (
         <label
           htmlFor={isLogin ? "my_modal_7" : "my_modal_8"}
-          className="cursor-pointer btn px-7 ml-5"
+          className="cursor-pointer btn md:px-7 md:ml-5 ml-2"
         >
           {isLogin ? "Login" : "Sign Up"}
         </label>
