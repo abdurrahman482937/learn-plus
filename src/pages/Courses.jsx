@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from "../firebase/firebase.config";
 
 const Courses = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  const handleMakeRead = async () => {
+    let ref = doc(db, "courses", "free");
+    const snap = await getDoc(ref);
+    console.log(snap.data());
+  };
+  useEffect(() => {
+    handleMakeRead();
+  }, []);
   const courses = [
     {
       id: 1,
-      title: "Free Course",
+      title: "  ",
       description: "Free course description goes here.",
       category: "Free",
       image:
@@ -30,12 +40,12 @@ const Courses = () => {
       : courses.filter((course) => course.category === selectedCategory);
 
   return (
-    <div className="px-[20%] py-[2%] flex flex-col gap-5">
+    <div className="lg:px-[20%] px-[5%] py-[2%] flex flex-col gap-5 z-0">
       {/* Dropdown for selecting category */}
       <select
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
-        className="select"
+        className="select w-40 cursor-pointer "
       >
         <option value="All">All Category</option>
         <option value="Free">Free</option>
@@ -43,27 +53,25 @@ const Courses = () => {
       </select>
 
       {/* Display filtered courses */}
-      <div className="">
-        <div className="grid grid-cols-3 gap-5">
-          {filteredCourses.map((course) => (
-            <div key={course.id} className="card bg-base-100 shadow-xl">
-              <figure>
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-[200px] object-cover"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">{course.title}</h2>
-                <p>{course.description}</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Enroll Now</button>
-                </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
+        {filteredCourses.map((course) => (
+          <div key={course.id} className="card bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src={course.image}
+                alt={course.title}
+                className="w-full h-auto object-cover"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{course.title}</h2>
+              <p>{course.description}</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Enroll Now</button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );
