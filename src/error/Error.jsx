@@ -17,9 +17,7 @@ const Error = () => {
               homepage.
             </p>
             <button className="btn">
-              <Link
-                className="px-8 py-3 font-semibold rounded"
-              >
+              <Link className="px-8 py-3 font-semibold rounded">
                 Back to homepage
               </Link>
             </button>
